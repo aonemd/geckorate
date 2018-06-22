@@ -20,6 +20,8 @@ Or install it yourself as:
 
 ## Usage
 
+### A Rails example
+
 Define your decorator as such:
 
 ```ruby
@@ -47,6 +49,28 @@ class PostsController < ApplicationController
     render json: { post: decorated_post }
   end
 end
+```
+
+### For collections
+
+There's a method `decorate_collection(collection)` for decorating collections.
+Example: `PostDecorator.decorate_collection(Post.all)` returns an array of
+decorated Post objects.
+
+### With paginated collections
+
+Currently, there are two methods for pagination; one for Kaminiari
+`decorate_kaminari_collection(collection)` and another for will_paginate
+`decorate_will_paginate_collection(collection)`. The returned hash from both
+methods looks like this:
+
+```ruby
+{
+  page: 1,
+  per_page: 25,
+  total: 100,
+  records: [{...}, {...}]
+}
 ```
 
 ## Development
