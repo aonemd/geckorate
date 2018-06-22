@@ -17,7 +17,7 @@ module Geckorate
       def decorate_kaminari_collection(collection)
         {
           page: collection.current_page,
-          per_page: collection.default_per_page,
+          per_page: collection.current_per_page,
           total: collection.total_count,
           records: decorate_collection(collection)
         }
