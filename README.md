@@ -22,8 +22,20 @@ Or install it yourself as:
 
 ### A Rails example
 
-Define your decorator as such:
+First, you need to add `app/decorators` to your app load path:
+```ruby
+# config/application.rb
 
+module MyApp
+  class Application < Rails::Application
+    ...
+    config.autoload_paths << Rails.root.join('app/decorators')
+  end
+end
+
+```
+
+Now, define your decorator as such:
 ```ruby
 # app/decorators/post_decorator.rb
 
@@ -37,7 +49,7 @@ class PostDecorator < Geckorate::Decorator
 end
 ```
 
-and initialize it in your controller and use it for your view:
+And initialize it in your controller and use it for your view:
 ```ruby
 # app/controllers/posts_contrller.rb
 
