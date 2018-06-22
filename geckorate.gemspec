@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Ahmed Saleh"]
   spec.email         = ["aonemdsaleh@gmail.com"]
 
-  spec.summary       = %q{A simple decorator for Ruby}
-  spec.description   = %q{A simple decorator for Ruby}
+  spec.summary       = %q{A dead simple decorator for Ruby}
+  spec.description   = %q{A dead simple decorator for Ruby}
   spec.homepage      = "https://github.com/aonemd/geckorate"
   spec.license       = "MIT"
 
