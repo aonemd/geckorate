@@ -22,6 +22,15 @@ module Geckorate
           records: decorate_collection(collection)
         }
       end
+
+      def decorate_will_paginate_collection(collection)
+        {
+          page: collection.current_page,
+          per_page: collection.per_page,
+          total: collection.total_entries,
+          records: decorate_collection(collection)
+        }
+      end
     end
   end
 end
