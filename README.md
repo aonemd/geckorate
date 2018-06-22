@@ -59,7 +59,7 @@ decorated Post objects.
 
 ### With paginated collections
 
-Currently, there are two methods for pagination; one for Kaminiari
+Currently, there are two methods for pagination; one for Kaminari
 `decorate_kaminari_collection(collection)` and another for will_paginate
 `decorate_will_paginate_collection(collection)`. The returned hash from both
 methods looks like this:
