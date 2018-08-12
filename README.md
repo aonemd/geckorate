@@ -44,7 +44,7 @@ class PostDecorator < Geckorate::Decorator
     {
       title: title,
       username: user.name
-    }.to_json
+    }
   end
 end
 ```
@@ -62,6 +62,9 @@ class PostsController < ApplicationController
   end
 end
 ```
+
+There is also a `decorate_as_json` method that calls `decorate` internally and
+returns a decorated JSON object.
 
 ### For collections
 
