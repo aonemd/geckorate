@@ -1,7 +1,12 @@
 require "geckorate/version"
+require 'json'
 
 module Geckorate
   class Decorator < SimpleDelegator
+    def decorate_as_json
+      decorate.to_json
+    end
+
     def decorate; end
 
     class << self
