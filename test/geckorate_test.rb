@@ -23,8 +23,8 @@ class GeckorateTest < Minitest::Test
     refute_nil ::Geckorate::VERSION
   end
 
-  def test_decorate_as_json_returns_decorated_json
-    assert IntegerDecorator.new(3).decorate_as_json == { num: "three" }.to_json
+  def test_decorate_returns_decorated_object
+    assert IntegerDecorator.new(3).decorate == { num: "three" }
   end
 
   def test_decorate_collection_returns_empty_array_if_empty
