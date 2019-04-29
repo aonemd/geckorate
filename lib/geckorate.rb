@@ -2,7 +2,7 @@ require "geckorate/version"
 
 module Geckorate
   class Decorator < SimpleDelegator
-    def decorate(options = {}); end
+    def decorate(options: {}); end
 
     class << self
       def decorate_collection(collection, class_name: nil, options: {})
