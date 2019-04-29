@@ -1,10 +1,13 @@
 require "test_helper"
 
 class IntegerDecorator < Geckorate::Decorator
-  def decorate
-    {
+  def decorate(options: {})
+    out = {
       num: digit_to_name(to_i)
     }
+
+    out[options.first[0]] = options.first[1] if options.first
+    out
   end
 
   private
@@ -25,6 +28,10 @@ class GeckorateTest < Minitest::Test
 
   def test_decorate_returns_decorated_object
     assert IntegerDecorator.new(3).decorate == { num: "three" }
+  end
+
+  def test_decorate_with_options
+    assert IntegerDecorator.new(3).decorate(options: { a: 1 }) == { num: "three", a: 1 }
   end
 
   def test_decorate_collection_returns_empty_array_if_empty
