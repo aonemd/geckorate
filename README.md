@@ -2,6 +2,12 @@
 
 A dead simple decorator for Ruby
 
+# Why
+
+This gem groups the functionality I used to implement in every Rails project I
+had so I thought of packaging it into a gem and get over with it. Also, see
+[Build your own decorator pattern](https://pdabrowski.com/blog/build-your-own-decorator-pattern).
+
 ## Installation
 
 Add this line to your application's Gemfile:
