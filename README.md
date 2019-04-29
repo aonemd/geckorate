@@ -46,7 +46,7 @@ Now, define your decorator as such:
 # app/decorators/post_decorator.rb
 
 class PostDecorator < Geckorate::Decorator
-  def decorate
+  def decorate(options = {})
     {
       title: title,
       username: user.name
@@ -71,15 +71,15 @@ end
 
 ### For collections
 
-There's a method `decorate_collection(collection)` for decorating collections.
+There's a method `decorate_collection(collection, options = {})` for decorating collections.
 Example: `PostDecorator.decorate_collection(Post.all)` returns an array of
 decorated Post objects.
 
 ### With paginated collections
 
 Currently, there are two methods for pagination; one for Kaminari
-`decorate_kaminari_collection(collection)` and another for will_paginate
-`decorate_will_paginate_collection(collection)`. The returned hash from both
+`decorate_kaminari_collection(collection, options = {})` and another for will_paginate
+`decorate_will_paginate_collection(collection, options = {})`. The returned hash from both
 methods looks like this:
 
 ```ruby
