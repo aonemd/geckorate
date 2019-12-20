@@ -12,8 +12,10 @@ module Geckorate
         full_klass_name = klass.to_s.concat('Decorator')
         decorator_klass = Class.const_get(full_klass_name)
 
+        decoration_method = options.fetch(:method, :decorate)
+
         collection.map do |item|
-          decorator_klass.new(item).decorate(options)
+          decorator_klass.new(item).send(decoration_method, options)
         end
       end
 

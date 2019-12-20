@@ -71,9 +71,13 @@ end
 
 ### For collections
 
-There's a method `decorate_collection(collection, options = {})` for decorating collections.
-Example: `PostDecorator.decorate_collection(Post.all)` returns an array of
-decorated Post objects.
+- There's a method `decorate_collection(collection, options = {})` for
+  decorating collections
+- Example: `PostDecorator.decorate_collection(Post.all)` returns an array of
+  decorated Post objects
+- The `options` hash can hold parameters to control the decoration:
+  * `:class_name`: the name of the decorator class without the `Decorator` part
+  * `:method`: the method to use for decorating the collection
 
 ### With paginated collections
 

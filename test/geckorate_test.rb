@@ -10,6 +10,12 @@ class IntegerDecorator < Geckorate::Decorator
     out
   end
 
+  def decorate_roman(options = {})
+    {
+      num: digit_to_roman(to_i)
+    }
+  end
+
   private
 
   def digit_to_name(digit)
@@ -17,6 +23,14 @@ class IntegerDecorator < Geckorate::Decorator
       1 => "one",
       2 => "two",
       3 => "three"
+    }[digit]
+  end
+
+  def digit_to_roman(digit)
+    {
+      1 => 'I',
+      2 => 'II',
+      3 => 'III'
     }[digit]
   end
 end
@@ -41,6 +55,10 @@ class GeckorateTest < Minitest::Test
   def test_decorate_collection_returns_array_of_decorated_objects
     assert(IntegerDecorator.decorate_collection([1, 2, 3]) ==
            [{:num=>"one"}, {:num=>"two"}, {:num=>"three"}])
+  end
+
+  def test_decorate_collection_with_custom_method
+    assert_equal [{:num=>"I"}, {:num=>"II"}, {:num=>"III"}], IntegerDecorator.decorate_collection([1, 2, 3], method: :decorate_roman)
   end
 
   def test_decorate_collection_raises_name_error_if_decorator_not_defined
